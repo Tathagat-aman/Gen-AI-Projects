@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+langchain
+langgraph
+langchain-community
+ollama
+langchain_openai
+plotly
+fastapi
+uvicorn
+requests
