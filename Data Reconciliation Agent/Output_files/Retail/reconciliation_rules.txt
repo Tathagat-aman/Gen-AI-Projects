@@ -1,0 +1,41 @@
+Certainly! Below are the English reconciliation rules for comparing the source data in the retail business domain with the target data. The rules describe the process of validating that the data has been accurately transformed and loaded from the source tables to the target table according to the provided STTM mapping table.
+
+### Reconciliation Rules
+
+1. **Customer Name Validation**:
+   - For each entry in the target table, the `customer_name` should be the concatenated result of `first_name` and `last_name` from the `dim_customer` table corresponding to the `customer_id` in the `fact_sales` table.
+   - Verify that: 
+     - The `customer_name` in the target table (e.g., "John Doe") matches the concatenation of `first_name` (e.g., "John") and `last_name` (e.g., "Doe") from the `dim_customer` table.
+
+2. **Product Name Validation**:
+   - The `product_name` in the target table should correspond to the `product_id` in the `fact_sales` table, by looking up the `product_name` field from the `dim_product` table.
+   - Confirm that:
+     - The `product_name` in the target table matches the `product_name` from the `dim_product` table based on the linked `product_id`.
+
+3. **Region Validation**:
+   - The `region` in the target table must match the `region` field from the `dim_customer` table associated with the `customer_id` in the `fact_sales` table.
+   - Check that:
+     - The `region` in the target table for each sale corresponds correctly with the `region` associated with the matching `customer_id` from `dim_customer`.
+
+4. **Sale Date Validation**:
+   - The `sale_date` in the target table should reflect the `date` from the `dim_date` table based on the `date_id` corresponding to the `fact_sales` table.
+   - Validate that:
+     - The `sale_date` in the target table matches the `date` derived from the `dim_date` table using the associated `date_id`.
+
+5. **Revenue Calculation Validation**:
+   - The `revenue` in the target table must be calculated as the product of `quantity` and `price` from the `fact_sales` table.
+   - Ensure that:
+     - For each entry in the target table, the `revenue` equals `quantity * price`, where `quantity` and `price` are taken from the `fact_sales` table.
+
+6. **Existence and Completeness of Records**:
+   - Ensure that all records in the target table have corresponding records in the source tables: each sale must be represented in the `fact_sales`, with linked entries in `dim_customer`, `dim_product`, and `dim_date`.
+   - Confirm that:
+     - The total number of records in the target table matches the total number of processed records from the source tables, ensuring no entries are dropped during the transformation.
+
+7. **Data Type and Format Validation**:
+   - Verify that the data types and formats in the target table match the expected types (e.g. strings for names, dates for sale_date, etc.) for successful import and queries.
+   - Check that:
+     - Data types in the target table (e.g., `customer_name`, `product_name`, `region`, `sale_date`, `revenue`) are consistent with their definitions and can be processed without errors.
+
+### Conclusion
+By following these reconciliation rules, a data quality assurance process can be established to ensure that the data loaded into the target table is accurate, complete, and consistent with the corresponding source data. This will facilitate effective data usage and reporting within the retail business domain.

@@ -1,0 +1,4 @@
+sale_id,customer_name,product_name,region,sale_date,revenue
+1,John Doe,Laptop,East,2023-07-01,2400
+2,Jane Smith,Phone,West,2023-07-02,800
+3,Alice Brown,Tablet,North,2023-07-03,1500

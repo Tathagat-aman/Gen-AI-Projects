@@ -1,0 +1,4 @@
+sale_id,customer_id,product_id,date_id,quantity,price
+1,1,101,20230701,2,1200
+2,2,102,20230702,1,800
+3,3,103,20230703,3,500

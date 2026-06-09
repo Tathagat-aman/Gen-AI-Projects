@@ -1,0 +1,7 @@
+Source Column,Source Table,Target Column,Transformation
+first_name,dim_customer,customer_name,concatenate first_name and last_name
+last_name,dim_customer,customer_name,concatenate first_name and last_name
+product_name,dim_product,product_name,lookup product_name from product_id
+region,dim_customer,region,lookup region using customer_id
+date,dim_date,sale_date,lookup date using date_id
+,fact_sales,revenue,calculate revenue as quantity * price
